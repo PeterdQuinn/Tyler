@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Produced by Tyler - Sunset Studios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .profile {
+            width: 90%;
+            max-width: 800px;
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+
+        .profile__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .profile__highlight__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .profile__highlight {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .profile__avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .profile__name {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .profile__name h2 {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5em;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .profile__name img {
+            margin-left: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #444;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+            width: 140px;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .social-links a:hover {
+            background-color: #666;
+        }
+
+        .social-links img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tabs {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            border-bottom: 2px solid #444;
+        }
+
+        .tabs li {
+            margin: 0 10px;
+        }
+
+        .tabs a {
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            color: #fff;
+            background-color: #333;
+            border-radius: 5px 5px 0 0;
+            transition: background-color 0.3s;
+        }
+
+        .tabs a.active, .tabs a:hover {
+            background-color: #666;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content a {
+            display: block;
+            color: #1e90ff;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        .tab-content a:hover {
+            text-decoration: underline;
+        }
+
+        .tab-content h2 {
+            margin-top: 0;
+        }
+
+        .tab-content p {
+            margin: 10px 0;
+        }
+
+        .tab-content ul {
+            padding-left: 20px;
+        }
+
+        .tab-content ul li {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .profile__header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile__highlight__wrapper {
+                margin-bottom: 10px;
+            }
+
+            .profile__highlight {
+                margin: 5px 0;
+            }
+
+            .tabs a {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .social-links a {
+                width: 100px;
+                font-size: 12px;
+            }
+
+            .social-links img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .profile__avatar img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .profile__name h2 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (min-height: 800px) {
+            .profile {
+                max-height: 80vh;
+            }
+        }
+    </style>
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+</head>
+<body>
+    <div class="profile">
+        <header class="profile__header">
+            <div class="profile__highlight__wrapper">
+                <div class="profile__highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-school" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+                        <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+                    </svg>
+                    100+
+                </div>
+                Clients
+            </div>
+            <div class="profile__avatar">
+                <img src="assets/producedbytyler.png" loading="lazy" alt="Produced by Tyler Logo">
+            </div>
+            <div class="profile__highlight__wrapper">
+                <div class="profile__highlight">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1" />
+                        <path d="M12 7v10" />
+                    </svg>
+                    25$
+                </div>
+                Hourly Rate
+            </div>
+        </header>
+        <div class="profile__name">
+            <h2>
+                Produced by Tyler 
+                <span style="display: inline-block; vertical-align: middle;">
+                    <img src="assets/producedbytyler.png" alt="Verified Ticker" style="height: 1em; margin-left: 10px;">
+                </span>
+            </h2>
+            <p>Sunset Studio</p>
+        </div>
+        <ul class="social-links">
+            <li>
+                <a href="https://www.instagram.com/producedbytyler">
+                    <img src="assets/ig.jpeg" alt="Instagram Icon">Instagram
+                </a>
+            </li>
+            <li>
+                <a href="https://tr.ee/3G5kWQvfk_">
+                    <img src="assets/apple.png" alt="Apple Music Icon">Apple Music
+                </a>
+            </li>
+            <li>
+                <a href="https://tr.ee/_m0j-Znmpq">
+                    <img src="assets/spotify.jpeg" alt="Spotify Icon">Spotify
+                </a>
+            </li>
+            <li>
+                <a href="https://tr.ee/-IvppJQ2Rt">
+                    <img src="assets/Youtube.png" alt="YouTube Icon">YouTube
+                </a>
+            </li>
+            <li>
+                <a href="https://linktr.ee/Producedbytyler?lt_utm_source=lt_share_link#284904509">
+                    <img src="assets/linktree.png" alt="Linktree Icon">Linktree
+                </a>
+            </li>
+        </ul>
+        <main>
+            <div class="tabs-wrapper">
+                <ul class="tabs">
+                    <li>
+                        <a class="tablink active" onclick="openTab(event, 'Music')">Music</a>
+                    </li>
+                    <li>
+                        <a class="tablink" onclick="openTab(event, 'Services')">Services</a>
+                    </li>
+                    <li>
+                        <a class="tablink" onclick="openTab(event, 'Merch')">Merch</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="Music" class="tab-content active">
+                <h2>Music</h2>
+                <a href="https://linktr.ee/Producedbytyler?lt_utm_source=lt_share_link#284904509">Linktree - Music Platforms</a>
+                <a href="https://earmilk.com/2020/03/30/producedbytyler-collaborates-with-various-artists-in-new-album-the-way-i-dreamed-it/">Earmilk Article V1</a>
+                <a href="https://ghosttown.media/post/627357864884862976/producedbytyler-drops-his-latest-collab-album-the">Ghosttown Media Article V2</a>
+                <a href="https://www.respecttheunderground.com/post/producedbytyler-drops-3rd-installment-in-collab-series">Respect the Underground Article V3</a>
+            </div>
+            <div id="Services" class="tab-content">
+                <h2>Services</h2>
+                <a href="https://booking.setmore.com/scheduleappointment/re703115bfbb0e8a0ea9707b307bdb85247d75c42">Book a Session at Sunset Studios</a>
+                <a href="https://www.beatstars.com/tyleronthebeat">Beatstars Page</a>
+            </div>
+            <div id="Merch" class="tab-content">
+                <h2>Merch</h2>
+                <p>Sunset Studios merch link coming soon.</p>
+                <p>“I’m recording a song today x I’m producing a song today” merch link coming soon.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
